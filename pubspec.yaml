@@ -34,8 +34,6 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-  model_viewer_plus: ^1.9.3
-  flame: ^1.34.0
   flutter_3d_controller: ^2.3.0
   # three_dart: ^0.0.16
   # three_dart_jsm: ^0.0.10
