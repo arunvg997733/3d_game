@@ -92,7 +92,9 @@ class _BlenderState extends State<Blender> with SingleTickerProviderStateMixin {
     return Scaffold(
       body: GestureDetector(
         behavior: HitTestBehavior.opaque,
-
+        onTapDown: (details) {
+          carVertical = 5;
+        },
         onLongPressStart: (_) {
           _accelerate();
         },
@@ -167,11 +169,9 @@ class _BlenderState extends State<Blender> with SingleTickerProviderStateMixin {
   }
 
   void _accelerate() {
-    setState(() {
-      carVertical = 5;
-    });
+    carVertical = 5;
     _timer?.cancel();
-    _timer = Timer.periodic(const Duration(milliseconds: 200), (_) {
+    _timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
       if (carSpeed < maxSpeed) {
         setState(() => carSpeed += 1);
         print("car speed ------------- $carSpeed");
@@ -185,7 +185,7 @@ class _BlenderState extends State<Blender> with SingleTickerProviderStateMixin {
     });
     // carController.setCameraOrbit(0, 35, 100);
     _timer?.cancel();
-    _timer = Timer.periodic(const Duration(milliseconds: 200), (_) {
+    _timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
       if (carSpeed > minSpeed) {
         setState(() => carSpeed -= 1);
         print("car speed ------------- $carSpeed");
